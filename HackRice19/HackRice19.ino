@@ -1,3 +1,6 @@
+void setup() {
+  // put your setup code here, to run once:
+  //Abdul's Code Mofos
 // What pins the sensors are connected to
 #define FLEXSENSORPIN0 A0 
 #define FLEXSENSORPIN1 A1 
@@ -11,9 +14,6 @@ float gyroReading;
 
 float clickerPosition;
 
-
-int FlexRead1;
-int FlexRead2;
 
 void setup(void) {
   Serial.begin(9600);
@@ -53,10 +53,10 @@ void loop(void) {
   //Serial.print("Clicker Position "); 
   //Serial.println(clickerPosition);
 
-  if (FlexRead1 < 775) {
+  if (MiddleReading < 775) {
     Mouse.click(MOUSE_LEFT);  
   } 
-  if (FlexRead2 < 775) {
+  if (indexReading < 775) {
     Mouse.click(MOUSE_RIGHT);
   }
 }
