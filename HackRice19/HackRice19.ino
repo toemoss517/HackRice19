@@ -1,6 +1,7 @@
 // put your setup code here, to run once:
   //Abdul's Code Mofos
 // What pins the sensors are connected to
+#include <Mouse.h>
 #define FLEXSENSORPIN0 A0 
 #define FLEXSENSORPIN1 A1 
 #define GYROSENSORPIN A2
