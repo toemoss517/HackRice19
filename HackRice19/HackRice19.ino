@@ -1,5 +1,4 @@
-void setup() {
-  // put your setup code here, to run once:
+// put your setup code here, to run once:
   //Abdul's Code Mofos
 // What pins the sensors are connected to
 #define FLEXSENSORPIN0 A0 
@@ -22,9 +21,6 @@ void setup(void) {
   //pinMode(2, INPUT);
   Mouse.begin();  
  
-void setup(void) {
-  Serial.begin(9600);
-
 }
  
 void loop(void) {
@@ -59,7 +55,4 @@ void loop(void) {
   if (indexReading < 775) {
     Mouse.click(MOUSE_RIGHT);
   }
-}
-
-
 }
