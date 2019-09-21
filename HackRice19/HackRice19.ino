@@ -1,4 +1,4 @@
-// What pins the sensors are connected to
+#include <Mouse.h>
 #define FLEXSENSORPIN0 A0 
 #define FLEXSENSORPIN1 A1 
 #define GYROSENSORPIN A2
@@ -7,12 +7,12 @@
 float middleReading;
 float indexReading;
 float gyroReading;
-
 float clickerPosition;
  
 void setup(void) {
   Serial.begin(9600);
-  Moust.begin()
+  Mouse.begin();
+
 }
  
 void loop(void) {
@@ -22,12 +22,12 @@ void loop(void) {
 
   clickerPosition = map(gyroReading, 0, 1023, 0, 90);
 
-  //Moust reading
-  int XReading = clickPosition;
-  int YReading = clickposition*(-1);
+  //Mouse reading
+  int XReading = clickerPosition;
+  int YReading = clickerPosition*(-1);
   
   //Move the Mouse
-  Moust.move(XReading, YReading, 0);
+  Mouse.move(XReading, YReading, 0);
   delay(10);
   
   //Testing the Sensors
@@ -49,4 +49,16 @@ void loop(void) {
       //Serial.print("Clicker Position "); 
       //Serial.println(clickerPosition);
   //End of Testing
+
+  if (middleReading < 775) {
+    Mouse.click(MOUSE_LEFT);
+  }
+  
+  if (indexReading < 775) {
+    Mouse.click(MOUSE_RIGHT);
+  }
+
+  delay(100);
 }
+
+ 
