@@ -8,7 +8,7 @@ float middleReading;
 float indexReading;
 float gyroReading;
 
-float clickerPosition
+float clickerPosition;
  
 void setup(void) {
   Serial.begin(9600);
@@ -23,13 +23,20 @@ void loop(void) {
 
   Serial.print("Reading Middle "); 
   Serial.println(middleReading);
+  
+  delay(300);
+  
+  //Serial.print("Reading Index "); 
+  //Serial.println(indexReading);
 
-  Serial.print("Reading Index "); 
-  Serial.println(indexReading);
+  delay(300);
+  
+  //Serial.print("Reading Gyro "); 
+  //Serial.println(gyroReading);
 
-  Serial.print("Reading Gyro "); 
-  Serial.println(gyroReading);
-
-  Serial.print("Clicker Position "); 
-  Serial.println(clickerPosition);
+  delay(300);
+  
+  //Serial.print("Clicker Position "); 
+  //Serial.println(clickerPosition);
+  
 }
