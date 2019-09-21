@@ -1,7 +1,4 @@
-void setup() {
-  // put your setup code here, to run once:
-  //Abdul's Code Mofos
-// What pins the sensors are connected to
+#include <Mouse.h>
 #define FLEXSENSORPIN0 A0 
 #define FLEXSENSORPIN1 A1 
 #define GYROSENSORPIN A2
@@ -11,21 +8,11 @@ void setup() {
 float middleReading;
 float indexReading;
 float gyroReading;
-
 float clickerPosition;
 
-
-int FlexRead;
-
 void setup(void) {
   Serial.begin(9600);
-  //initiate mouse
-
-  //pinMode(2, INPUT);
-  Mouse.begin();  
- 
-void setup(void) {
-  Serial.begin(9600);
+  Mouse.begin();
 
 }
  
@@ -33,31 +20,47 @@ void loop(void) {
   middleReading = analogRead(FLEXSENSORPIN0);
   indexReading = analogRead(FLEXSENSORPIN1);
   gyroReading = analogRead(GYROSENSORPIN);
-
   clickerPosition = map(gyroReading, 0, 1023, 0, 90);
 
-  Serial.print("Reading Middle "); 
-  Serial.println(middleReading);
+  //Mouse reading
+  int XReading = clickerPosition;
+  int YReading = clickerPosition*(-1);
   
-  delay(300);
+  //Move the Mouse
+  Mouse.move(XReading, YReading, 0);
+  delay(10);
   
-  //Serial.print("Reading Index "); 
-  //Serial.println(indexReading);
+  //Testing the Sensors
+      Serial.print("Reading Middle "); 
+      Serial.println(middleReading);
+      
+      delay(300);
+      
+      //Serial.print("Reading Index "); 
+      //Serial.println(indexReading);
+    
+      delay(300);
+      
+      //Serial.print("Reading Gyro "); 
+      //Serial.println(gyroReading);
+    
+      delay(300);
+      
+      //Serial.print("Clicker Position "); 
+      //Serial.println(clickerPosition);
+  //End of Testing
 
-  delay(300);
-  
-  //Serial.print("Reading Gyro "); 
-  //Serial.println(gyroReading);
-
-
-  delay(300);
-  
-  //Serial.print("Clicker Position "); 
-  //Serial.println(clickerPosition);
-
-  if (FlexRead < 775) {
-    Mouse.click();  
+  if (middleReading < 775) {
+    Mouse.click(MOUSE_LEFT);
   }
+  
+  if (indexReading < 775) {
+    Mouse.click(MOUSE_RIGHT);
+  }
+
+  delay(100);
 
 
 }
+
+ 
