@@ -12,7 +12,8 @@ float gyroReading;
 float clickerPosition;
 
 
-int FlexRead;
+int FlexRead1;
+int FlexRead2;
 
 void setup(void) {
   Serial.begin(9600);
@@ -52,9 +53,13 @@ void loop(void) {
   //Serial.print("Clicker Position "); 
   //Serial.println(clickerPosition);
 
-  if (FlexRead < 775) {
-    Mouse.click();  
+  if (FlexRead1 < 775) {
+    Mouse.click(MOUSE_LEFT);  
+  } 
+  if (FlexRead2 < 775) {
+    Mouse.click(MOUSE_RIGHT);
   }
+}
 
 
 }
