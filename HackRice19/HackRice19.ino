@@ -1,3 +1,6 @@
+void setup() {
+  // put your setup code here, to run once:
+  //Abdul's Code Mofos
 // What pins the sensors are connected to
 #define FLEXSENSORPIN0 A0 
 #define FLEXSENSORPIN1 A1 
