@@ -1,8 +1,9 @@
-void setup() {
-  // put your setup code here, to run once:
+// What pins the sensors are connected to
+#define FLEXSENSORPIN0 A0 
+#define FLEXSENSORPIN1 A1 
+#define GYROSENSORPIN A2
 
-<<<<<<< Updated upstream
-=======
+
 //defined variables for each sensor
 float middleReading;
 float indexReading;
@@ -18,16 +19,34 @@ void setup(void) {
   //initiate mouse
 
   //pinMode(2, INPUT);
-  Mouse.begin();
-  
->>>>>>> Stashed changes
+  Mouse.begin();  
+ 
+void setup(void) {
+  Serial.begin(9600);
+
 }
+ 
+void loop(void) {
+  middleReading = analogRead(FLEXSENSORPIN0);
+  indexReading = analogRead(FLEXSENSORPIN1);
+  gyroReading = analogRead(GYROSENSORPIN);
 
-void loop() {
-  // put your main code here, to run repeatedly:
+  clickerPosition = map(gyroReading, 0, 1023, 0, 90);
 
-<<<<<<< Updated upstream
-=======
+  Serial.print("Reading Middle "); 
+  Serial.println(middleReading);
+  
+  delay(300);
+  
+  //Serial.print("Reading Index "); 
+  //Serial.println(indexReading);
+
+  delay(300);
+  
+  //Serial.print("Reading Gyro "); 
+  //Serial.println(gyroReading);
+
+
   delay(300);
   
   //Serial.print("Clicker Position "); 
@@ -36,5 +55,6 @@ void loop() {
   if (FlexRead < 775) {
     Mouse.click();  
   }
->>>>>>> Stashed changes
+
+
 }
