@@ -55,4 +55,6 @@ void loop(void) {
   if (indexReading < 775) {
     Mouse.click(MOUSE_RIGHT);
   }
+
+  delay(300);
 }
