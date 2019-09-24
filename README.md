@@ -1,1 +1,3 @@
-![Picture of the project](https://drive.google.com/file/d/1VIBn1DpMjx_MVJJnA98UswEzqg1SiJA_/view?usp=sharing)
+Picture of the hardware aspect of the project that took the majority of our time
+
+![](IMG_3672.JPG)
